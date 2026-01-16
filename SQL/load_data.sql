@@ -1,0 +1,14 @@
+-- Create Database
+CREATE DATABASE HOTEL_DB;
+USE HOTEL_DB;
+
+-- Create File Format
+CREATE OR REPLACE FILE FORMAT FF_CSV
+    TYPE = 'CSV'
+    FIELD_OPTIONALLY_ENCLOSED_BY = '"'
+    SKIP_HEADER = 1
+    NULL_IF = ('NULL', 'Null', 'null', '');
+
+-- Create Stage
+CREATE OR REPLACE STAGE STG_HOTEL_BOOKINGS
+    FILE_FORMAT = FF_CSV;
